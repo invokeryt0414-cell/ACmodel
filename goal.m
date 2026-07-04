@@ -10,26 +10,29 @@ classdef goal
             obj.currentGoal = "none";
         end
 
-        function obj = update(obj, emotion)
-
+       function obj = update(obj, emotion)
+        
+            if emotion.fear > 50
+                obj.currentGoal = "escape";
+                return
+            end
+        
             [~, idx] = max([
                 emotion.joy
-                emotion.fear
                 emotion.anger
                 emotion.sadness
                 emotion.curiosity
             ]);
-
+        
             goals = [
                 "explore"
-                "escape"
                 "attack"
                 "rest"
                 "explore"
             ];
-
+        
             obj.currentGoal = goals(idx);
-
+        
         end
 
     end

@@ -19,7 +19,7 @@ classdef environment
                         3 18;
                         19 10
                         ];
-            obj.enemy = [8 17];
+            obj.enemy = [11 10];
 
         end
         

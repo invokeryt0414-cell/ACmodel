@@ -20,6 +20,8 @@ for t = 1:10
 
     AC.body = AC.body.update();
     AC.perception = AC.perception.update(AC, world);
+    AC.worldModel = AC.worldModel.update(AC.perception);
+    AC.memory = AC.memory.rememberEnemy(AC.perception.enemy);
     AC.evaluation = AC.evaluation.update(AC, world);
     AC.emotion = AC.emotion.update(AC.evaluation);   % ←先
     
@@ -66,3 +68,11 @@ disp(AC.emotion.curiosity)
 
 disp("=== Goal ===")
 disp(AC.goal.currentGoal)
+
+disp("=== World Model ===")
+
+disp(AC.worldModel.enemyPosition)
+disp(AC.worldModel.enemyConfidence)
+
+disp(AC.worldModel.foodPosition)
+disp(AC.worldModel.foodConfidence)

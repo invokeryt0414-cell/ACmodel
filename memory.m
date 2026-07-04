@@ -2,6 +2,7 @@ classdef memory
 
     properties
         positionLog
+        enemyLog
     end
 
     methods
@@ -9,6 +10,7 @@ classdef memory
         function obj = memory()
 
             obj.positionLog = [];
+            obj.enemyLog = [];
 
         end
 
@@ -16,6 +18,13 @@ classdef memory
 
             obj.positionLog = [obj.positionLog; position];
 
+        end
+        function obj = rememberEnemy(obj, enemy)
+        
+            if ~isempty(enemy)
+                obj.enemyLog = [obj.enemyLog; enemy];
+            end
+        
         end
 
     end

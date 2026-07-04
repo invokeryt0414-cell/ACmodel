@@ -22,11 +22,21 @@ classdef evaluation
 
         function obj = update(obj, AC, perception)
         
-            if isempty(perception.enemy)
-                obj.danger = 0;
-            else
-                dEnemy = norm(AC.position - perception.enemy);
+            if ~isempty(AC.worldModel.enemyPosition)
+        
+                dEnemy = norm(AC.position - AC.worldModel.enemyPosition);
                 obj.danger = max(0,100 - dEnemy * 10);
+        
+            elseif ~isempty(AC.memory.enemyLog)
+        
+                lastEnemy = AC.memory.enemyLog(end,:);
+                dEnemy = norm(AC.position - lastEnemy);
+                obj.danger = max(0,50 - dEnemy * 5);
+        
+            else
+        
+                obj.danger = 0;
+        
             end
         
             obj.reward = AC.body.energy;

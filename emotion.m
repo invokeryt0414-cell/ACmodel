@@ -32,7 +32,7 @@ classdef emotion
         
             obj.sadness = evaluation.importance;
         
-            obj.anger = 100 * (1 - evaluation.certainty);
+            obj.anger = evaluation.importance * (1 - evaluation.certainty);
         
         end
 

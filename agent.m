@@ -9,6 +9,7 @@ classdef agent
         goal
         action
         perception
+        worldModel
     end
 
     methods
@@ -23,6 +24,7 @@ classdef agent
             obj.goal = goal();
             obj.action = action();
             obj.perception = perception();
+            obj.worldModel = worldModel();
 
         end
         function obj = move(obj)
