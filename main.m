@@ -20,10 +20,25 @@ for t = 1:10
 
     AC.body = AC.body.update();
     AC.evaluation = AC.evaluation.update(AC, world);
-    AC.goal = AC.goal.update(AC.emotion);
-    AC = AC.move();
+    AC.emotion = AC.emotion.update(AC.evaluation);   % ←先
+    
+    AC.goal = AC.goal.update(AC.emotion);            % ←後
+    
+    % 行動
+    if AC.goal.currentGoal == "explore"
+        AC = AC.action.explore(AC);
+    
+    elseif AC.goal.currentGoal == "escape"
+        AC = AC.action.escape(AC, world);
+    
+    elseif AC.goal.currentGoal == "attack"
+        AC = AC.action.attack(AC, world);
+    
+    elseif AC.goal.currentGoal == "rest"
+        AC = AC.action.rest(AC);
+    end
+    
     AC.memory = AC.memory.remember(AC.position);
-    AC.emotion = AC.emotion.update(AC.evaluation);
     if ismember(AC.position, world.food, "rows")
         AC = AC.eat();
         disp("Food!")
