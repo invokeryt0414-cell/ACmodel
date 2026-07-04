@@ -20,9 +20,9 @@ classdef evaluation
 
         end
 
-        function obj = update(obj, AC, world)
+        function obj = update(obj, AC, perception)
 
-            dEnemy = norm(AC.position - world.enemy);
+            dEnemy = norm(AC.position - perception.enemy);
 
             obj.danger = max(0, 100 - dEnemy * 10);
             obj.reward = AC.body.energy;

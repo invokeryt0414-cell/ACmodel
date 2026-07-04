@@ -19,6 +19,7 @@ disp(AC.body.fatigue)
 for t = 1:10
 
     AC.body = AC.body.update();
+    AC.perception = AC.perception.update(AC, world);
     AC.evaluation = AC.evaluation.update(AC, world);
     AC.emotion = AC.emotion.update(AC.evaluation);   % ←先
     

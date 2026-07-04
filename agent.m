@@ -8,6 +8,7 @@ classdef agent
         evaluation
         goal
         action
+        perception
     end
 
     methods
@@ -21,6 +22,7 @@ classdef agent
             obj.evaluation = evaluation();
             obj.goal = goal();
             obj.action = action();
+            obj.perception = perception();
 
         end
         function obj = move(obj)
