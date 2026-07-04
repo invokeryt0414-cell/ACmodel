@@ -20,6 +20,7 @@ for t = 1:10
 
     AC.body = AC.body.update();
     AC.evaluation = AC.evaluation.update(AC, world);
+    AC.goal = AC.goal.update(AC.emotion);
     AC = AC.move();
     AC.memory = AC.memory.remember(AC.position);
     AC.emotion = AC.emotion.update(AC.evaluation);
@@ -41,14 +42,11 @@ disp("=== Memory ===")
 disp(AC.memory.positionLog)
 
 disp("=== Emotion ===")
-
-disp(AC.emotion.joy)
-disp(AC.emotion.sadness)
-
-disp("=== Emotion ===")
-
 disp(AC.emotion.joy)
 disp(AC.emotion.fear)
 disp(AC.emotion.anger)
 disp(AC.emotion.sadness)
 disp(AC.emotion.curiosity)
+
+disp("=== Goal ===")
+disp(AC.goal.currentGoal)
