@@ -24,8 +24,8 @@ classdef perception
                 obj.enemy = [];
             end
         
-            if norm(AC.position - world.food) <= vision
-                obj.food = world.food;
+            if norm(AC.position - world.food(1,:)) <= vision
+                obj.food = world.food(1,:);
             else
                 obj.food = [];
             end
