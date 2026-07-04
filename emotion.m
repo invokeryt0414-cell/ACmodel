@@ -22,11 +22,17 @@ classdef emotion
 
         end
 
-        function obj = update(obj, body)
+        function obj = update(obj, evaluation)
         
-            obj.joy = body.energy;
+            obj.joy = evaluation.reward;
         
-            obj.sadness = body.hunger;
+            obj.fear = evaluation.danger;
+        
+            obj.curiosity = evaluation.novelty;
+        
+            obj.sadness = evaluation.importance;
+        
+            obj.anger = 100 * (1 - evaluation.certainty);
         
         end
 

@@ -5,6 +5,7 @@ classdef agent
         body
         memory
         emotion
+        evaluation
     end
 
     methods
@@ -15,6 +16,7 @@ classdef agent
             obj.body = body();
             obj.memory = memory();
             obj.emotion = emotion();
+            obj.evaluation = evaluation();
 
         end
         function obj = move(obj)
