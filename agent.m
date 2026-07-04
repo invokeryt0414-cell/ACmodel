@@ -3,6 +3,8 @@ classdef agent
     properties
         position
         body
+        memory
+        emotion
     end
 
     methods
@@ -11,6 +13,8 @@ classdef agent
 
             obj.position = [10 10];
             obj.body = body();
+            obj.memory = memory();
+            obj.emotion = emotion();
 
         end
         function obj = move(obj)
