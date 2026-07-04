@@ -20,6 +20,10 @@ for t = 1:10
 
     AC.body = AC.body.update();
     AC = AC.move();
+    if ismember(AC.position, world.food, "rows")
+        AC = AC.eat();
+        disp("Food!")
+    end
 
     disp("------")
     disp(t)

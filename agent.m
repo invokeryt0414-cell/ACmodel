@@ -19,6 +19,12 @@ classdef agent
             obj.position(2) = obj.position(2) + randi([-1 1]);
         
         end
+        function obj = eat(obj)
+
+            obj.body.hunger = 0;
+            obj.body.energy = 100;
+        
+        end
 
 
     end
