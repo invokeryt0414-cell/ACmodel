@@ -22,6 +22,12 @@ classdef environment
             obj.enemy = [11 10];
 
         end
+
+        function obj = moveEnemy(obj)
+        
+            obj.enemy = obj.enemy + [1 0];
+        
+        end
         
     end
 

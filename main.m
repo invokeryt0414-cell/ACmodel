@@ -18,6 +18,8 @@ disp(AC.body.fatigue)
 
 for t = 1:10
 
+    world = world.moveEnemy();
+    
     AC.body = AC.body.update();
     AC.perception = AC.perception.update(AC, world);
     AC.worldModel = AC.worldModel.update(AC.perception);
@@ -76,3 +78,4 @@ disp(AC.worldModel.enemyConfidence)
 
 disp(AC.worldModel.foodPosition)
 disp(AC.worldModel.foodConfidence)
+disp(AC.worldModel.enemyVelocity)
