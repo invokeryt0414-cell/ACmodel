@@ -39,3 +39,22 @@ Action
 - Predictionの入力と出力
 - Evaluationの評価項目
 - World Modelの詳細構造
+
+## Predictionの定義
+
+Predictionは、現在のWorld Modelから未来のWorld Modelを予測する機構である。
+
+入力:
+- 現在のWorld Model
+- Memory
+- Body
+- Action候補
+
+出力:
+- 未来のWorld Model
+- 未来のSelf状態
+- 未来の危険候補
+- 未来の達成可能性
+
+目的:
+Evaluationが未来を評価できるようにする。
