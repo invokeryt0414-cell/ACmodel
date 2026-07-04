@@ -15,10 +15,21 @@ classdef perception
         end
 
         function obj = update(obj, AC, world)
-
-            obj.enemy = world.enemy;
-            obj.food = world.food;
-
+        
+            vision = 5;
+        
+            if norm(AC.position - world.enemy) <= vision
+                obj.enemy = world.enemy;
+            else
+                obj.enemy = [];
+            end
+        
+            if norm(AC.position - world.food) <= vision
+                obj.food = world.food;
+            else
+                obj.food = [];
+            end
+        
         end
 
     end

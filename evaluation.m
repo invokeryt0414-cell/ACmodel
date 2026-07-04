@@ -30,6 +30,13 @@ classdef evaluation
             obj.importance = AC.body.hunger;
             obj.certainty = 1 / (1 + obj.danger);
 
+            if isempty(perception.enemy)
+                obj.danger = 0;
+            else
+                dEnemy = norm(AC.position - perception.enemy);
+                obj.danger = max(0,100-dEnemy*10);
+            end
+
         end
 
     end
