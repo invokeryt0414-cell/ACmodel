@@ -19,10 +19,13 @@ disp(AC.body.fatigue)
 for t = 1:10
 
     AC.body = AC.body.update();
+    AC = AC.move();
 
     disp("------")
     disp(t)
     disp(AC.body.energy)
     disp(AC.body.hunger)
+    disp(AC.position)
+
 
 end
